@@ -6,5 +6,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'ubb-spel';
+  phase = Phase.Welcome;
+  PhaseType = Phase;
+  players = '';
+}
+
+enum Phase {
+  Welcome,
+  HowMany,
+  Game
 }

@@ -1,0 +1,18 @@
+.result-table {
+  font-size: 17pt;
+}
+
+.input-name {
+  font-size: 20pt;
+  width: 100px;
+}
+
+.input-value {
+  font-size: 20pt;
+  width: 80px;
+}
+
+.sum {
+  font-size: 20pt;
+  font-weight: bolder;
+}
