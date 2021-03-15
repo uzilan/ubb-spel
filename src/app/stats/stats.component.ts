@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {AngularFirestore} from '@angular/fire/firestore';
 import * as _ from 'lodash';
 import {Game} from '../../model/game';
+import {map} from "rxjs/operators";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-stats',
@@ -10,24 +12,23 @@ import {Game} from '../../model/game';
 })
 export class StatsComponent implements OnInit {
 
-  games?: Game[];
-  i = 99;
+  games$: Observable<Game[]>;
 
   constructor(private store: AngularFirestore) {
   }
 
   ngOnInit(): void {
-    const games$ = this.store.collection('games');
-    games$.get().subscribe(data => {
-      this.games = _.map(data.docs, doc => {
-        return {
-          playerNames: doc.get('playerNames'),
-          rows: doc.get('rows'),
-          winner: doc.get('winner'),
-          date: doc.get('date'),
-        };
-      });
-    });
-
+    this.games$ = this.store.collection('games')
+      .get()
+      .pipe(map(data => {
+        return _.map(data.docs, doc => {
+          return {
+            playerNames: doc.get('playerNames'),
+            rows: doc.get('rows'),
+            winner: doc.get('winner'),
+            date: doc.get('date'),
+          };
+        });
+      }));
   }
 }

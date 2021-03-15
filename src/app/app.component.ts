@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {StatsComponent} from './stats/stats.component';
 import {MatDialog} from '@angular/material/dialog';
 
@@ -16,9 +16,9 @@ export class AppComponent {
   }
 
   showStats() {
-    const stats = this.dialog.open(StatsComponent, {
-      height: '400px',
-      width: '600px',
+    this.dialog.open(StatsComponent, {
+      height: '800px',
+      width: '1200px',
     });
   }
 }

@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { StatsHighestPointsComponent } from './stats-highest-points.component';
+import { StatsSimpleChartComponent } from './stats-simple-chart.component';
 
-describe('StatsHighestPointsComponent', () => {
-  let component: StatsHighestPointsComponent;
-  let fixture: ComponentFixture<StatsHighestPointsComponent>;
+describe('StatsSimpleChartComponent', () => {
+  let component: StatsSimpleChartComponent;
+  let fixture: ComponentFixture<StatsSimpleChartComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ StatsHighestPointsComponent ]
+      declarations: [ StatsSimpleChartComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(StatsHighestPointsComponent);
+    fixture = TestBed.createComponent(StatsSimpleChartComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

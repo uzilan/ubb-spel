@@ -1,1 +1,12 @@
-<app-stats-highest-points [games]="games" [i]="i"></app-stats-highest-points>
+<section>
+  <table>
+    <tr class="stats-row">
+      <td>
+        <app-stats-scores [games$]="games$"></app-stats-scores>
+      </td>
+      <td>
+        <app-stats-winners [games$]="games$"></app-stats-winners>
+      </td>
+    </tr>
+  </table>
+</section>

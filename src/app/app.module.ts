@@ -15,7 +15,10 @@ import {AngularFireModule} from '@angular/fire';
 import {environment} from '../environments/environment';
 import {StatsComponent} from './stats/stats.component';
 import {MatDialogModule} from '@angular/material/dialog';
-import {StatsHighestPointsComponent} from './stats-highest-points/stats-highest-points.component';
+import {StatsWinnersComponent} from './stats-winners/stats-winners.component';
+import {StatsScoresComponent} from './stats-scores/stats-scores.component';
+import {HighchartsChartModule} from "highcharts-angular";
+import { StatsSimpleChartComponent } from './stats-simple-chart/stats-simple-chart.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +26,9 @@ import {StatsHighestPointsComponent} from './stats-highest-points/stats-highest-
     BoardComponent,
     BoardHeaderComponent,
     StatsComponent,
-    StatsHighestPointsComponent
+    StatsWinnersComponent,
+    StatsScoresComponent,
+    StatsSimpleChartComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +40,8 @@ import {StatsHighestPointsComponent} from './stats-highest-points/stats-highest-
     MatDialogModule,
     FormsModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    HighchartsChartModule
   ],
   providers: [],
   bootstrap: [AppComponent]
