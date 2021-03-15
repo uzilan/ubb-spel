@@ -1,3 +1,9 @@
+.winner-header {
+  font-weight: bolder;
+  margin-top: 10px;
+  margin-bottom: 0px;
+}
+
 .game-table {
   font-size: 7pt;
   border: 1px gray solid;

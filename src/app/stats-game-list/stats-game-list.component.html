@@ -1,4 +1,6 @@
 <h2>Spelhistorik</h2>
-<div *ngFor="let game of games$ | async">
-  <app-stats-game [game]="game"></app-stats-game>
+<div class="game-history">
+  <div *ngFor="let game of games$ | async">
+    <app-stats-game [game]="game"></app-stats-game>
+  </div>
 </div>
