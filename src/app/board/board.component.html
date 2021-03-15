@@ -29,7 +29,7 @@
   <tbody>
   <tr *ngFor="let item of [].constructor(players); let row = index">
     <td>
-      <input matInput type="text" class="input-name">
+      <input matInput type="text" class="input-name" [(ngModel)]="playerNames[row]">
     </td>
     <td *ngFor="let item of [].constructor(7); let col = index">
       <input matInput [ngModel]="getCell(row, col)"
@@ -42,4 +42,6 @@
   </tr>
   </tbody>
 </table>
-
+<div class="buttons">
+  <button *ngIf="lastGamePlayed()" (click)="saveGame()" mat-raised-button color="basic" class="save-result">Spara resultat</button>
+</div>

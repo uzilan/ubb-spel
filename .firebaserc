@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "ubb-spel-aebae": {
+      "hosting": {
+        "ubb-spel": [
+          "ubb-spel-aebae"
+        ]
+      }
+    }
+  }
+}

@@ -1,5 +1,6 @@
 .result-table {
   font-size: 17pt;
+  border-spacing: 7px;
 }
 
 .input-name {
@@ -15,4 +16,21 @@
 .sum {
   font-size: 20pt;
   font-weight: bolder;
+}
+
+.buttons {
+  padding-top: 20px;
+  width: 100%;
+  text-align: center;
+}
+
+.save-result {
+  font-size: 10pt;
+}
+
+.stats {
+  height: 100%;
+  width: 100%;
+  vertical-align: top;
+  display: block;
 }

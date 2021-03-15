@@ -1,5 +1,5 @@
 .max-height {
-  min-height: 100%;
+  min-height: 95%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -11,7 +11,7 @@
   margin-bottom: 30px;
 }
 
-.new-spel {
+.new-game {
   font-size: 28pt;
   padding: 10px;
 }
@@ -21,4 +21,8 @@
   min-height: 100%;
   font-size: 28pt;
   width: 100px;
+}
+
+.stats {
+  text-align: end;
 }

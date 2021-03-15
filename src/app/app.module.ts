@@ -8,15 +8,22 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatInputModule} from '@angular/material/input';
 import {MatCardModule} from '@angular/material/card';
 import {FormsModule} from '@angular/forms';
-import {MatLabel} from '@angular/material/form-field';
-import { BoardComponent } from './board/board.component';
-import { BoardHeaderComponent } from './board-header/board-header.component';
+import {BoardComponent} from './board/board.component';
+import {BoardHeaderComponent} from './board-header/board-header.component';
+import {AngularFirestoreModule} from '@angular/fire/firestore';
+import {AngularFireModule} from '@angular/fire';
+import {environment} from '../environments/environment';
+import {StatsComponent} from './stats/stats.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import {StatsHighestPointsComponent} from './stats-highest-points/stats-highest-points.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BoardComponent,
-    BoardHeaderComponent
+    BoardHeaderComponent,
+    StatsComponent,
+    StatsHighestPointsComponent
   ],
   imports: [
     BrowserModule,
@@ -25,7 +32,10 @@ import { BoardHeaderComponent } from './board-header/board-header.component';
     MatIconModule,
     MatButtonModule,
     MatInputModule,
+    MatDialogModule,
     FormsModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]

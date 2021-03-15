@@ -1,14 +1,19 @@
+<section class="stats mat-typography">
+  <button mat-raised-button color="basic" (click)="showStats()">Statistik</button>
+</section>
+
 <section class="max-height mat-typography">
+
   <div *ngIf="phase == PhaseType.Welcome">
     <h1 class="title">Välkommen till UBB!</h1>
-    <button mat-raised-button color="basic" class="new-spel" (click)="phase = PhaseType.HowMany">Starta ett nytt spel
+    <button mat-raised-button color="basic" class="new-game" (click)="phase = PhaseType.HowMany">Starta ett nytt spel
     </button>
   </div>
 
   <div *ngIf="phase == PhaseType.HowMany">
     <h1 class="title">Antal spelare?</h1>
     <input matInput [(ngModel)]="players" type="number" class="number-of-players">&nbsp;
-    <button mat-raised-button color="basic" class="new-spel" (click)="phase = PhaseType.Game">Ok</button>
+    <button mat-raised-button color="basic" class="new-game" (click)="phase = PhaseType.Game">Ok</button>
   </div>
 
   <app-board [players]="players" *ngIf="phase == PhaseType.Game"></app-board>
