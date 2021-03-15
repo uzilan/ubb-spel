@@ -17,8 +17,11 @@ import {StatsComponent} from './stats/stats.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import {StatsWinnersComponent} from './stats-winners/stats-winners.component';
 import {StatsScoresComponent} from './stats-scores/stats-scores.component';
-import {HighchartsChartModule} from "highcharts-angular";
-import { StatsSimpleChartComponent } from './stats-simple-chart/stats-simple-chart.component';
+import {HighchartsChartModule} from 'highcharts-angular';
+import {StatsSimpleChartComponent} from './stats-simple-chart/stats-simple-chart.component';
+import {StatsGameListComponent} from './stats-game-list/stats-game-list.component';
+import {StatsGameComponent} from './stats-game/stats-game.component';
+import {MatTableModule} from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -28,7 +31,9 @@ import { StatsSimpleChartComponent } from './stats-simple-chart/stats-simple-cha
     StatsComponent,
     StatsWinnersComponent,
     StatsScoresComponent,
-    StatsSimpleChartComponent
+    StatsSimpleChartComponent,
+    StatsGameListComponent,
+    StatsGameComponent
   ],
   imports: [
     BrowserModule,
@@ -38,6 +43,7 @@ import { StatsSimpleChartComponent } from './stats-simple-chart/stats-simple-cha
     MatButtonModule,
     MatInputModule,
     MatDialogModule,
+    MatTableModule,
     FormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,

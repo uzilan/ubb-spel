@@ -9,6 +9,7 @@ export class BoardHeaderComponent implements OnInit {
 
   @Input() longs = 0;
   @Input() shorts = 0;
+  @Input() class = '';
 
   constructor() {
   }

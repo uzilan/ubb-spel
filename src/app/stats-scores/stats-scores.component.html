@@ -1,4 +1,6 @@
 <h2>Poängligan</h2>
 <ol>
-  <li *ngFor="let row of topFive; let i = index">{{row.player}} - {{row.sum}} poäng</li>
+  <li *ngFor="let row of topFive$ | async; let i = index">{{row.name}} - {{row.value}} poäng</li>
 </ol>
+
+<app-stats-simple-chart [data$]="topFive$"></app-stats-simple-chart>

@@ -1,8 +1,9 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Game} from "../../model/game";
-import {Row} from "../../model/row";
+import {Game} from '../../model/game';
 import * as _ from 'lodash';
-import {Observable} from "rxjs";
+import {Observable} from 'rxjs';
+import {map} from 'rxjs/operators';
+import {NameAndValue} from '../../model/name-and-value';
 
 @Component({
   selector: 'app-stats-scores',
@@ -13,19 +14,19 @@ export class StatsScoresComponent implements OnInit {
 
   @Input()
   games$: Observable<Game[]>;
-  topFive: Row[];
+  topFive$: Observable<NameAndValue[]>;
 
   constructor() {
   }
 
   ngOnInit(): void {
-    this.games$.subscribe(games => {
-        this.topFive = _.chain(games)
-          .flatMap(game => game.rows)
-          .orderBy('sum', 'desc')
-          .take(5)
-          .value();
-      }
-    )
+    this.topFive$ = this.games$.pipe(map(games => {
+      return _.chain(games)
+        .flatMap(game => game.rows)
+        .orderBy('sum', 'desc')
+        .take(5)
+        .map(row => ({name: row.player, value: row.sum}))
+        .value();
+    }));
   }
 }

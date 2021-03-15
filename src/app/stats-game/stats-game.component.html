@@ -1,0 +1,64 @@
+<h3>Vinnare: {{game.winner.name}} ({{game.winner.points}})</h3>
+<table class="game-table">
+  <tr>
+    <th class="game-table-header">namn</th>
+    <th>
+      <div>
+        <mat-icon fontSet="fa" fontIcon="fa-circle" class="tight"></mat-icon>
+        <mat-icon fontSet="fa" fontIcon="fa-circle" class="tight"></mat-icon>
+      </div>
+    </th>
+    <th>
+      <div>
+        <mat-icon fontSet="fa" fontIcon="fa-minus" class="tight"></mat-icon>
+        <mat-icon fontSet="fa" fontIcon="fa-circle" class="tight"></mat-icon>
+      </div>
+    </th>
+    <th>
+      <div>
+        <mat-icon fontSet="fa" fontIcon="fa-minus" class="tight"></mat-icon>
+        <mat-icon fontSet="fa" fontIcon="fa-minus" class="tight"></mat-icon>
+      </div>
+    </th>
+    <th>
+      <div>
+        <mat-icon fontSet="fa" fontIcon="fa-circle" class="tight"></mat-icon>
+        <mat-icon fontSet="fa" fontIcon="fa-circle" class="tight"></mat-icon>
+        <mat-icon fontSet="fa" fontIcon="fa-circle" class="tight"></mat-icon>
+      </div>
+    </th>
+    <th>
+      <div>
+        <mat-icon fontSet="fa" fontIcon="fa-minus" class="tight"></mat-icon>
+        <mat-icon fontSet="fa" fontIcon="fa-circle" class="tight"></mat-icon>
+        <mat-icon fontSet="fa" fontIcon="fa-circle" class="tight"></mat-icon>
+      </div>
+    </th>
+    <th>
+      <div>
+        <mat-icon fontSet="fa" fontIcon="fa-minus" class="tight"></mat-icon>
+        <mat-icon fontSet="fa" fontIcon="fa-minus" class="tight"></mat-icon>
+        <mat-icon fontSet="fa" fontIcon="fa-circle" class="tight"></mat-icon>
+      </div>
+    </th>
+    <th>
+      <div>
+        <mat-icon fontSet="fa" fontIcon="fa-minus" class="tight"></mat-icon>
+        <mat-icon fontSet="fa" fontIcon="fa-minus" class="tight"></mat-icon>
+        <mat-icon fontSet="fa" fontIcon="fa-minus" class="tight"></mat-icon>
+      </div>
+    </th>
+    <th class="game-table-header">summa</th>
+  </tr>
+  <tr *ngFor="let row of game.rows">
+    <td>{{row.player}}</td>
+    <td>{{row.ss}}</td>
+    <td>{{row.sl}}</td>
+    <td>{{row.ll}}</td>
+    <td>{{row.sss}}</td>
+    <td>{{row.ssl}}</td>
+    <td>{{row.sll}}</td>
+    <td>{{row.lll}}</td>
+    <td>{{row.sum}}</td>
+  </tr>
+</table>

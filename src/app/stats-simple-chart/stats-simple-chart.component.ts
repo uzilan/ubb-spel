@@ -1,6 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
 import * as Highcharts from 'highcharts';
-import * as _ from "lodash";
+import * as _ from 'lodash';
+import {Observable} from 'rxjs';
+import {NameAndValue} from '../../model/name-and-value';
 
 @Component({
   selector: 'app-stats-simple-chart',
@@ -9,36 +11,40 @@ import * as _ from "lodash";
 })
 export class StatsSimpleChartComponent implements OnInit {
 
-  Highcharts: typeof Highcharts = Highcharts; // required
-  chartOptions: Highcharts.Options = {}; // required
-  oneToOneFlag: boolean = true; // optional boolean, defaults to false
+  Highcharts: typeof Highcharts = Highcharts;
+  chartOptions: Highcharts.Options = {};
+  oneToOneFlag = true;
 
   @Input()
-  data: { name: string, value: number }[];
+  data$: Observable<NameAndValue[]>;
 
   constructor() {
   }
 
   ngOnInit(): void {
-    this.chartOptions = {
-      title: {
-        text: ''
-      },
-      legend: {
-        enabled: false
-      },
-      xAxis: {
-        categories: _.map(this.data, 'name')
-      },
-      yAxis: {
+    this.data$.subscribe(data =>
+      this.chartOptions = {
         title: {
           text: ''
         },
-      },
-      series: [{
-        data: _.map(this.data, 'value'),
-        type: 'bar',
-      }]
-    }
+        legend: {
+          enabled: false
+        },
+        xAxis: {
+          categories: _.map(data, 'name')
+        },
+        yAxis: {
+          title: {
+            text: ''
+          },
+        },
+        credits: {
+          enabled: false
+        },
+        series: [{
+          data: _.map(data, 'value'),
+          type: 'bar',
+        }]
+      });
   }
 }
