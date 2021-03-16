@@ -28,6 +28,7 @@ export class StatsWinnersComponent implements OnInit {
           name: key,
           value: value.length
         }))
+        .orderBy('value', 'desc')
         .value();
     }));
   }

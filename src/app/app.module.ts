@@ -21,7 +21,7 @@ import {StatsSimpleChartComponent} from './stats-simple-chart/stats-simple-chart
 import {StatsGameListComponent} from './stats-game-list/stats-game-list.component';
 import {StatsGameComponent} from './stats-game/stats-game.component';
 import {MatTableModule} from '@angular/material/table';
-import {MatGridListModule} from "@angular/material/grid-list";
+import {MatGridListModule} from '@angular/material/grid-list';
 
 @NgModule({
   declarations: [
@@ -32,7 +32,7 @@ import {MatGridListModule} from "@angular/material/grid-list";
     StatsScoresComponent,
     StatsSimpleChartComponent,
     StatsGameListComponent,
-    StatsGameComponent
+    StatsGameComponent,
   ],
   imports: [
     BrowserModule,

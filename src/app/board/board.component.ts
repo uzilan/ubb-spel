@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, HostListener, Input, OnInit} from '@angular/core';
 import * as _ from 'lodash';
 import {AngularFirestore} from '@angular/fire/firestore';
 import {Game} from '../../model/game';
@@ -14,6 +14,7 @@ export class BoardComponent implements OnInit {
   @Input() players: number;
   rows: number[][];
   playerNames: string[] = new Array(this.players);
+  private saved = false;
 
   constructor(private store: AngularFirestore) {
   }
@@ -58,6 +59,7 @@ export class BoardComponent implements OnInit {
       })
     );
 
+
     const winner = _.minBy(rowData, 'sum');
 
     const game: Game = {
@@ -68,6 +70,18 @@ export class BoardComponent implements OnInit {
     };
 
     this.store.collection('games').add(game);
+    this.saved = true;
+    confirm('Sparat! Se statistiken om du vill se lite, äh, statistik.');
+    window.location.reload();
+  }
+
+  @HostListener('window:beforeunload', ['$event'])
+  unloadNotification($event: any) {
+    if (!this.saved) {
+      if (!confirm('Vill du inte spara spelet innan du går vidare?')) {
+        $event.returnValue = true;
+      }
+    }
   }
 }
 
