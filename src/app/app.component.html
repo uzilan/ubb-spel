@@ -12,8 +12,10 @@
 
   <div *ngIf="phase == PhaseType.HowMany">
     <h1 class="title">Antal spelare?</h1>
-    <input matInput [(ngModel)]="players" type="number" class="number-of-players">&nbsp;
-    <button mat-raised-button color="basic" class="new-game" (click)="phase = PhaseType.Game">Ok</button>
+    <div class="number-of-players-wrapper">
+      <input matInput [(ngModel)]="players" type="number" class="number-of-players">&nbsp;
+      <button mat-raised-button color="basic" class="new-game" (click)="phase = PhaseType.Game">Ok</button>
+    </div>
   </div>
 
   <div *ngIf="phase == PhaseType.Game" class="board-wrapper">

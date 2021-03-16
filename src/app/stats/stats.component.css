@@ -5,3 +5,7 @@
 .stats-row {
   vertical-align: top;
 }
+
+.stats-cell {
+  padding-left: 0;
+}
