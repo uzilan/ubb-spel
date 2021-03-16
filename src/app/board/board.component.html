@@ -3,25 +3,36 @@
   <tr>
     <th>Namn</th>
     <th>
-      <app-board-header [shorts]="2"></app-board-header>
+      <mat-icon fontSet="fa" fontIcon="fa-circle"></mat-icon>
+      <mat-icon fontSet="fa" fontIcon="fa-circle"></mat-icon>
     </th>
     <th>
-      <app-board-header [shorts]="1" [longs]="1"></app-board-header>
+      <mat-icon fontSet="fa" fontIcon="fa-minus"></mat-icon>
+      <mat-icon fontSet="fa" fontIcon="fa-circle"></mat-icon>
     </th>
     <th>
-      <app-board-header [longs]="2"></app-board-header>
+      <mat-icon fontSet="fa" fontIcon="fa-minus"></mat-icon>
+      <mat-icon fontSet="fa" fontIcon="fa-minus"></mat-icon>
     </th>
     <th>
-      <app-board-header [shorts]="3"></app-board-header>
+      <mat-icon fontSet="fa" fontIcon="fa-circle"></mat-icon>
+      <mat-icon fontSet="fa" fontIcon="fa-circle"></mat-icon>
+      <mat-icon fontSet="fa" fontIcon="fa-circle"></mat-icon>
     </th>
     <th>
-      <app-board-header [shorts]="2" [longs]="1"></app-board-header>
+      <mat-icon fontSet="fa" fontIcon="fa-minus"></mat-icon>
+      <mat-icon fontSet="fa" fontIcon="fa-circle"></mat-icon>
+      <mat-icon fontSet="fa" fontIcon="fa-circle"></mat-icon>
     </th>
     <th>
-      <app-board-header [shorts]="1" [longs]="2"></app-board-header>
+      <mat-icon fontSet="fa" fontIcon="fa-minus"></mat-icon>
+      <mat-icon fontSet="fa" fontIcon="fa-minus"></mat-icon>
+      <mat-icon fontSet="fa" fontIcon="fa-circle"></mat-icon>
     </th>
     <th>
-      <app-board-header [longs]="3"></app-board-header>
+      <mat-icon fontSet="fa" fontIcon="fa-minus"></mat-icon>
+      <mat-icon fontSet="fa" fontIcon="fa-minus"></mat-icon>
+      <mat-icon fontSet="fa" fontIcon="fa-minus"></mat-icon>
     </th>
     <th class="content">Summa</th>
   </tr>
@@ -43,5 +54,7 @@
   </tbody>
 </table>
 <div class="buttons">
-  <button *ngIf="lastGamePlayed()" (click)="saveGame()" mat-raised-button color="basic" class="save-result">Spara resultat</button>
+  <button *ngIf="lastGamePlayed()" (click)="saveGame()" mat-raised-button color="basic" class="save-result">Spara
+    resultat
+  </button>
 </div>

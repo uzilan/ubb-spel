@@ -6,13 +6,11 @@
 }
 
 .title {
-  font-size: 50pt;
   font-weight: bolder;
   margin-bottom: 30px;
 }
 
 .new-game {
-  font-size: 28pt;
   padding: 10px;
 }
 
@@ -25,4 +23,9 @@
 
 .stats {
   text-align: end;
+}
+
+.board-wrapper {
+  width: 95%;
+  height: 95%;
 }

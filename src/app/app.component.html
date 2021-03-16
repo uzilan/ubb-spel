@@ -16,6 +16,8 @@
     <button mat-raised-button color="basic" class="new-game" (click)="phase = PhaseType.Game">Ok</button>
   </div>
 
-  <app-board [players]="players" *ngIf="phase == PhaseType.Game"></app-board>
+  <div *ngIf="phase == PhaseType.Game" class="board-wrapper">
+    <app-board [players]="players"></app-board>
+  </div>
 
 </section>

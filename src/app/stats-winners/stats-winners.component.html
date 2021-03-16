@@ -1,7 +1,9 @@
 <h2>Vinstligan</h2>
 <app-stats-simple-chart [data$]="winners$"></app-stats-simple-chart>
-<ol>
-  <li *ngFor="let row of winners$ |async; let i = index">{{row.name}} - {{row.value}} ggr</li>
-</ol>
+<div class="list-wrapper">
+  <ol>
+    <li *ngFor="let row of winners$ |async; let i = index">{{row.name}} - {{row.value}} ggr</li>
+  </ol>
+</div>
 
 

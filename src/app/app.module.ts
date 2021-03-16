@@ -9,7 +9,6 @@ import {MatInputModule} from '@angular/material/input';
 import {MatCardModule} from '@angular/material/card';
 import {FormsModule} from '@angular/forms';
 import {BoardComponent} from './board/board.component';
-import {BoardHeaderComponent} from './board-header/board-header.component';
 import {AngularFirestoreModule} from '@angular/fire/firestore';
 import {AngularFireModule} from '@angular/fire';
 import {environment} from '../environments/environment';
@@ -22,12 +21,12 @@ import {StatsSimpleChartComponent} from './stats-simple-chart/stats-simple-chart
 import {StatsGameListComponent} from './stats-game-list/stats-game-list.component';
 import {StatsGameComponent} from './stats-game/stats-game.component';
 import {MatTableModule} from '@angular/material/table';
+import {MatGridListModule} from "@angular/material/grid-list";
 
 @NgModule({
   declarations: [
     AppComponent,
     BoardComponent,
-    BoardHeaderComponent,
     StatsComponent,
     StatsWinnersComponent,
     StatsScoresComponent,
@@ -44,6 +43,7 @@ import {MatTableModule} from '@angular/material/table';
     MatInputModule,
     MatDialogModule,
     MatTableModule,
+    MatGridListModule,
     FormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,

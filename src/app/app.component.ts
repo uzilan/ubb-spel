@@ -17,8 +17,8 @@ export class AppComponent {
 
   showStats() {
     this.dialog.open(StatsComponent, {
-      height: '800px',
-      width: '1200px',
+      height: '80%',
+      width: '80%',
     });
   }
 }
