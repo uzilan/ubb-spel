@@ -2,6 +2,7 @@ import {Component, HostListener, Input, OnInit} from '@angular/core';
 import * as _ from 'lodash';
 import {AngularFirestore} from '@angular/fire/firestore';
 import {Game} from '../../model/game';
+import * as moment from 'moment'
 
 
 @Component({
@@ -45,7 +46,27 @@ export class BoardComponent implements OnInit {
   }
 
   saveGame() {
-    const rowData = _.map(this.rows, row =>
+    const rowData = this.collectData();
+    const winner = _.minBy(rowData, 'sum');
+    const game: Game = {
+      playerNames: this.playerNames,
+      rows: rowData,
+      winner: {name: winner.player, points: winner.sum},
+      date: moment(new Date()).format('YYYY-MM-DD'),
+    };
+
+    this.store.collection('games')
+      .add(game)
+      .then(r => {
+        console.log("saved game: " + r);
+        this.saved = true;
+        confirm('Sparat! Se statistiken om du vill se lite, äh, statistik.');
+        window.location.reload();
+      })
+  }
+
+  private collectData() {
+    return _.map(this.rows, row =>
       ({
         player: this.playerNames[_.indexOf(this.rows, row)],
         ss: row[0],
@@ -58,21 +79,6 @@ export class BoardComponent implements OnInit {
         sum: _.sum(row)
       })
     );
-
-
-    const winner = _.minBy(rowData, 'sum');
-
-    const game: Game = {
-      playerNames: this.playerNames,
-      rows: rowData,
-      winner: {name: winner.player, points: winner.sum},
-      date: new Date()
-    };
-
-    this.store.collection('games').add(game);
-    this.saved = true;
-    confirm('Sparat! Se statistiken om du vill se lite, äh, statistik.');
-    window.location.reload();
   }
 
   @HostListener('window:beforeunload', ['$event'])
