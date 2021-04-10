@@ -1,25 +1,45 @@
-<section class="stats mat-typography">
-  <button mat-raised-button color="basic" (click)="showStats()">Statistik</button>
-</section>
+<section *ngIf="auth.user | async as user; else showLogin" class="max-height flex">
 
-<section class="max-height mat-typography">
+  <section class="header">
+    <section class="logout mat-typography">
+      <label class="logged-in-as">Inloggad som: {{ user.displayName }}</label>&nbsp;
+      <button mat-raised-button color="basic" (click)="logout()">Logga ut</button>
+    </section>
 
-  <div *ngIf="phase == PhaseType.Welcome">
-    <h1 class="title">Välkommen till UBB!</h1>
-    <button mat-raised-button color="basic" class="new-game" (click)="phase = PhaseType.HowMany">Starta ett nytt spel
-    </button>
-  </div>
+    <section class="stats mat-typography">
+      <button mat-raised-button color="basic" (click)="showStats()">Statistik</button>
+    </section>
+  </section>
 
-  <div *ngIf="phase == PhaseType.HowMany">
-    <h1 class="title">Antal spelare?</h1>
-    <div class="number-of-players-wrapper">
-      <input matInput [(ngModel)]="players" type="number" class="number-of-players">&nbsp;
-      <button mat-raised-button color="basic" class="new-game" (click)="phase = PhaseType.Game">Ok</button>
+  <section class="max-height mat-typography flex">
+
+    <div *ngIf="phase == PhaseType.Welcome">
+      <h1 class="title">Välkommen till UBB!</h1>
+      <button mat-raised-button color="basic" class="new-game" (click)="phase = PhaseType.HowMany">Starta ett nytt spel
+      </button>
     </div>
-  </div>
 
-  <div *ngIf="phase == PhaseType.Game" class="board-wrapper">
-    <app-board [players]="players"></app-board>
-  </div>
+    <div *ngIf="phase == PhaseType.HowMany">
+      <h1 class="title">Antal spelare?</h1>
+      <div class="number-of-players-wrapper">
+        <input matInput [(ngModel)]="players" type="number" class="number-of-players">&nbsp;
+        <button mat-raised-button color="basic" class="new-game" (click)="phase = PhaseType.Game">Ok</button>
+      </div>
+    </div>
 
+    <div *ngIf="phase == PhaseType.Game" class="board-wrapper">
+      <app-board [players]="players"></app-board>
+    </div>
+
+  </section>
 </section>
+
+<ng-template #showLogin>
+  <section class="max-height mat-typography flex">
+    <div>
+      <h1 class="title">Välkommen till UBB!</h1>
+      <button mat-raised-button color="basic" (click)="login()">Logga in med Google</button>
+    </div>
+  </section>
+</ng-template>
+

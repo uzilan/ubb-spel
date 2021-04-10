@@ -1,6 +1,8 @@
-import {Component, Output} from '@angular/core';
+import {Component} from '@angular/core';
 import {StatsComponent} from './stats/stats.component';
 import {MatDialog} from '@angular/material/dialog';
+import {AngularFireAuth} from '@angular/fire/auth';
+import firebase from 'firebase/app';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +14,15 @@ export class AppComponent {
   PhaseType = Phase;
   players = '';
 
-  constructor(public dialog: MatDialog) {
+  constructor(public auth: AngularFireAuth, public dialog: MatDialog) {
+  }
+
+  login() {
+    this.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
+  }
+
+  logout() {
+    this.auth.signOut();
   }
 
   showStats() {

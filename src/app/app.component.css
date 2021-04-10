@@ -1,6 +1,35 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.flex {
+  display: flex;
+}
+
+.login {
+  min-height: 95%;
+  align-items: center;
+  justify-content: center;
+}
+
+.logged-in-as {
+  color: rebeccapurple;
+  font-weight: bolder;
+  font-size: 12pt;
+  padding-left: 5px;
+}
+
+.logout {
+  text-align: start;
+}
+
 .max-height {
   min-height: 95%;
-  display: flex;
+
   align-items: center;
   justify-content: center;
 }
