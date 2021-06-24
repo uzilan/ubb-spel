@@ -1,6 +1,6 @@
 <h2>Spelhistorik</h2>
 <div class="game-history">
-  <div *ngFor="let game of games$ | async">
+  <div *ngFor="let game of games$ | async | orderBy: 'date': 'desc'">
     <app-stats-game [game]="game"></app-stats-game>
   </div>
 </div>

@@ -22,6 +22,7 @@ import {StatsGameListComponent} from './stats-game-list/stats-game-list.componen
 import {StatsGameComponent} from './stats-game/stats-game.component';
 import {MatTableModule} from '@angular/material/table';
 import {MatGridListModule} from '@angular/material/grid-list';
+import { OrderbyPipe } from './orderby.pipe';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import {MatGridListModule} from '@angular/material/grid-list';
     StatsSimpleChartComponent,
     StatsGameListComponent,
     StatsGameComponent,
+    OrderbyPipe,
   ],
   imports: [
     BrowserModule,
