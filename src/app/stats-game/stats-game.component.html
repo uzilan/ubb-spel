@@ -51,16 +51,16 @@
       </th>
       <th class="game-table-header">summa</th>
     </tr>
-    <tr *ngFor="let row of game.rows">
-      <td>{{row.player}}</td>
-      <td>{{row.ss}}</td>
-      <td>{{row.sl}}</td>
-      <td>{{row.ll}}</td>
-      <td>{{row.sss}}</td>
-      <td>{{row.ssl}}</td>
-      <td>{{row.sll}}</td>
-      <td>{{row.lll}}</td>
-      <td>{{row.sum}}</td>
+    <tr *ngFor="let row of game.rows" >
+      <td [ngClass]="winnerClass(row)">{{row.player}}</td>
+      <td [ngClass]="winnerClass(row)">{{row.ss}}</td>
+      <td [ngClass]="winnerClass(row)">{{row.sl}}</td>
+      <td [ngClass]="winnerClass(row)">{{row.ll}}</td>
+      <td [ngClass]="winnerClass(row)">{{row.sss}}</td>
+      <td [ngClass]="winnerClass(row)">{{row.ssl}}</td>
+      <td [ngClass]="winnerClass(row)">{{row.sll}}</td>
+      <td [ngClass]="winnerClass(row)">{{row.lll}}</td>
+      <td [ngClass]="winnerClass(row)">{{row.sum}}</td>
     </tr>
   </table>
 </div>

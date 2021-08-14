@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Game} from '../../model/game';
+import {Row} from "../../model/row";
 
 @Component({
   selector: 'app-stats-game',
@@ -17,4 +18,7 @@ export class StatsGameComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  winnerClass(row: Row) {
+    return this.game.winner.name === row.player ? 'winner': '';
+  }
 }
