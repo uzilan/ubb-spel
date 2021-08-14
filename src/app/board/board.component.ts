@@ -14,13 +14,14 @@ export class BoardComponent implements OnInit {
 
   @Input() players: number;
   rows: number[][];
-  playerNames: string[] = new Array(this.players);
+  playerNames: string[];
   private saved = false;
 
   constructor(private store: AngularFirestore) {
   }
 
   ngOnInit(): void {
+    this.playerNames = new Array(this.players);
     this.rows = new Array<Array<number>>();
     for (let x = 0; x < this.players; x++) {
       const row: number[] = new Array<number>();
