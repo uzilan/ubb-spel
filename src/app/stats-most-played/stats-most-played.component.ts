@@ -1,30 +1,30 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Game} from '../../model/game';
-import {Observable} from 'rxjs';
+import {Observable} from "rxjs";
+import {Game} from "../../model/game";
+import {NameAndValue} from "../../model/name-and-value";
 import * as _ from 'lodash';
-import {NameAndValue} from '../../model/name-and-value';
 import {map} from 'rxjs/operators';
 import {StatsComponent} from "../stats/stats.component";
 
-
 @Component({
-  selector: 'app-stats-winners',
-  templateUrl: './stats-winners.component.html',
-  styleUrls: ['./stats-winners.component.css']
+  selector: 'app-stats-most-played',
+  templateUrl: './stats-most-played.component.html',
+  styleUrls: ['./stats-most-played.component.css']
 })
-export class StatsWinnersComponent implements OnInit {
+export class StatsMostPlayedComponent implements OnInit {
 
   @Input()
   games$: Observable<Game[]>;
-  winners$: Observable<NameAndValue[]>;
+  players$: Observable<NameAndValue[]>;
 
   constructor() {
   }
 
   ngOnInit(): void {
-    this.winners$ = this.games$.pipe(map(games => {
+    this.players$ = this.games$.pipe(map(games => {
       return _.chain(games)
-        .groupBy('winner.name')
+        .flatMap('playerNames')
+        .groupBy(_)
         .map((value, key) => ({
           name: key,
           value: value.length

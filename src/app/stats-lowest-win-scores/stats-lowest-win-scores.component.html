@@ -1,0 +1,7 @@
+<h2>Lägsta vinstpoäng</h2>
+<app-stats-simple-chart [data$]="lowest$"></app-stats-simple-chart>
+<div class="list-wrapper">
+  <ol>
+    <li *ngFor="let row of lowest$ |async; let i = index">{{row.name}} - {{row.value}} p</li>
+  </ol>
+</div>

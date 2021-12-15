@@ -4,6 +4,7 @@ import * as _ from 'lodash';
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
 import {NameAndValue} from '../../model/name-and-value';
+import {StatsComponent} from "../stats/stats.component";
 
 @Component({
   selector: 'app-stats-scores',
@@ -24,7 +25,7 @@ export class StatsScoresComponent implements OnInit {
       return _.chain(games)
         .flatMap(game => game.rows)
         .orderBy('sum', 'desc')
-        .take(5)
+        .take(StatsComponent.constants.statsCount)
         .map(row => ({name: row.player, value: row.sum}))
         .value();
     }));

@@ -14,6 +14,10 @@ export class StatsComponent implements OnInit {
 
   games$: Observable<Game[]>;
 
+  static constants = {
+    statsCount: 7
+  }
+
   constructor(private store: AngularFirestore) {
   }
 

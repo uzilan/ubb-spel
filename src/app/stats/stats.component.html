@@ -3,11 +3,13 @@
     <tr class="stats-row">
       <td class="stats-cell">
         <app-stats-scores [games$]="games$"></app-stats-scores>
+        <app-stats-lowest-win-scores [games$]="games$"></app-stats-lowest-win-scores>
       </td>
       <td class="stats-cell">
         <app-stats-winners [games$]="games$"></app-stats-winners>
+        <app-stats-most-played [games$]="games$"></app-stats-most-played>
       </td>
-      <td class="stats-cell">
+      <td>
         <app-stats-game-list [games$]="games$"></app-stats-game-list>
       </td>
     </tr>

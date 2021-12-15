@@ -2,6 +2,6 @@
 <app-stats-simple-chart [data$]="topFive$"></app-stats-simple-chart>
 <div class="list-wrapper">
   <ol class="stats-list">
-    <li *ngFor="let row of topFive$ | async; let i = index">{{row.name}} - {{row.value}}</li>
+    <li *ngFor="let row of topFive$ | async; let i = index">{{row.name}} - {{row.value}} p</li>
   </ol>
 </div>
