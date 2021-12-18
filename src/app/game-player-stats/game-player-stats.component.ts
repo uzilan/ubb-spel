@@ -39,6 +39,11 @@ export class GamePlayerStatsComponent implements OnInit {
     };
 
     const game = this.data.game;
+
+    const namesAndScores = _.map(game.rows, (row: Row) => {
+      return row.player + ' (' + row.sum + ')';
+    });
+
     const rows = _.map(game.rows, (row: Row) => {
         const scores = [row.ss, row.sl, row.ll, row.sss, row.ssl, row.sll, row.lll];
         const low = _.min(scores);
@@ -46,7 +51,7 @@ export class GamePlayerStatsComponent implements OnInit {
         const median = q50(scores);
         const q3 = q75(scores);
         const high = _.max(scores);
-        return [row.player, low, q1, median, q3, high];
+        return [row.player + ' (' + row.sum + ')', low, q1, median, q3, high];
       }
     );
 
@@ -62,7 +67,7 @@ export class GamePlayerStatsComponent implements OnInit {
         enabled: false
       },
       xAxis: {
-        categories: game.playerNames
+        categories: namesAndScores
       },
       yAxis: {
         title: {
@@ -76,7 +81,18 @@ export class GamePlayerStatsComponent implements OnInit {
         name: 'results',
         type: 'boxplot',
         data: rows,
-      }]
+        colorByPoint: true,
+      }],
+      plotOptions: {
+        boxplot: {
+          fillColor: '#F0F0E0',
+          lineWidth: 2,
+          medianWidth: 2,
+          stemWidth: 1,
+          whiskerLength: '20%',
+          whiskerWidth: 2
+        }
+      },
     };
   }
 }
