@@ -1,4 +1,7 @@
-<h3 class="winner-header">{{game.date}} - vinnare: {{game.winner.name}} ({{game.winner.points}})</h3>
+<h3 class="winner-header">{{game.date}} - vinnare: {{game.winner.name}} ({{game.winner.points}})
+  <a href="javascript:" (click)="showGamePlayerStats()">
+    <mat-icon fontSet="fa" fontIcon="fa-bar-chart"></mat-icon>
+  </a></h3>
 <div class="game-wrapper">
   <table class="game-table">
     <tr>
@@ -51,7 +54,7 @@
       </th>
       <th class="game-table-header">summa</th>
     </tr>
-    <tr *ngFor="let row of game.rows" >
+    <tr *ngFor="let row of game.rows">
       <td [ngClass]="winnerClass(row)">{{row.player}}</td>
       <td [ngClass]="winnerClass(row)">{{row.ss}}</td>
       <td [ngClass]="winnerClass(row)">{{row.sl}}</td>

@@ -22,9 +22,10 @@ import {StatsGameListComponent} from './stats-game-list/stats-game-list.componen
 import {StatsGameComponent} from './stats-game/stats-game.component';
 import {MatTableModule} from '@angular/material/table';
 import {MatGridListModule} from '@angular/material/grid-list';
-import { OrderbyPipe } from './orderby.pipe';
-import { StatsLowestWinScoresComponent } from './stats-lowest-win-scores/stats-lowest-win-scores.component';
-import { StatsMostPlayedComponent } from './stats-most-played/stats-most-played.component';
+import {OrderbyPipe} from './orderby.pipe';
+import {StatsLowestWinScoresComponent} from './stats-lowest-win-scores/stats-lowest-win-scores.component';
+import {StatsMostPlayedComponent} from './stats-most-played/stats-most-played.component';
+import {GamePlayerStatsComponent} from "./game-player-stats/game-player-stats.component";
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { StatsMostPlayedComponent } from './stats-most-played/stats-most-played.
     OrderbyPipe,
     StatsLowestWinScoresComponent,
     StatsMostPlayedComponent,
+    GamePlayerStatsComponent,
   ],
   imports: [
     BrowserModule,
