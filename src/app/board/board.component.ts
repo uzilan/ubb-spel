@@ -1,14 +1,15 @@
-import {Component, HostListener, Input, OnInit} from '@angular/core';
+import { Component, HostListener, Input, OnInit } from '@angular/core';
 import * as _ from 'lodash';
-import {AngularFirestore} from '@angular/fire/firestore';
-import {Game} from '../../model/game';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { Game } from '../../model/game';
 import * as moment from 'moment'
-
+import { map } from "rxjs/operators";
+import { Observable } from "rxjs";
 
 @Component({
   selector: 'app-board',
   templateUrl: './board.component.html',
-  styleUrls: ['./board.component.css']
+  styleUrls: ['./board.component.css'],
 })
 export class BoardComponent implements OnInit {
 
@@ -16,11 +17,21 @@ export class BoardComponent implements OnInit {
   rows: number[][];
   playerNames: string[];
   private saved = false;
+  potentialNames$: Observable<string[]>;
 
   constructor(private store: AngularFirestore) {
   }
 
   ngOnInit(): void {
+    this.potentialNames$ = this.store.collection('games')
+    .get()
+    .pipe(map(data =>
+      _.chain(data.docs)
+      .flatMap(doc => doc.get('playerNames'))
+      .uniq()
+      .value(),
+    ));
+
     this.playerNames = new Array(this.players);
     this.rows = new Array<Array<number>>();
     for (let x = 0; x < this.players; x++) {
@@ -52,18 +63,18 @@ export class BoardComponent implements OnInit {
     const game: Game = {
       playerNames: this.playerNames,
       rows: rowData,
-      winner: {name: winner.player, points: winner.sum},
+      winner: { name: winner.player, points: winner.sum },
       date: moment(new Date()).format('YYYY-MM-DD'),
     };
 
     this.store.collection('games')
-      .add(game)
-      .then(r => {
-        console.log("saved game: " + r);
-        this.saved = true;
-        confirm('Sparat! Se statistiken om du vill se lite, äh, statistik.');
-        window.location.reload();
-      })
+    .add(game)
+    .then(r => {
+      console.log("saved game: " + r);
+      this.saved = true;
+      confirm('Sparat! Se statistiken om du vill se lite, äh, statistik.');
+      window.location.reload();
+    })
   }
 
   private collectData() {
@@ -77,8 +88,8 @@ export class BoardComponent implements OnInit {
         ssl: row[4],
         sll: row[5],
         lll: row[6],
-        sum: _.sum(row)
-      })
+        sum: _.sum(row),
+      }),
     );
   }
 
