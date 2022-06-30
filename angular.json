@@ -127,5 +127,8 @@
       }
     }
   },
-  "defaultProject": "ubb-spel"
+  "defaultProject": "ubb-spel",
+  "cli": {
+    "analytics": false
+  }
 }

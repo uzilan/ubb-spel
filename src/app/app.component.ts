@@ -1,13 +1,13 @@
-import {Component} from '@angular/core';
-import {StatsComponent} from './stats/stats.component';
-import {MatDialog} from '@angular/material/dialog';
-import {AngularFireAuth} from '@angular/fire/auth';
-import firebase from 'firebase/app';
+import { Component } from '@angular/core';
+import { StatsComponent } from './stats/stats.component';
+import { MatDialog } from '@angular/material/dialog';
+import { AngularFireAuth } from "@angular/fire/compat/auth";
+import firebase from "firebase/compat/app";
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
   phase = Phase.Welcome;

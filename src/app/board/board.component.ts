@@ -1,10 +1,10 @@
 import { Component, HostListener, Input, OnInit } from '@angular/core';
 import * as _ from 'lodash';
-import { AngularFirestore } from '@angular/fire/firestore';
 import { Game } from '../../model/game';
 import * as moment from 'moment'
 import { map } from "rxjs/operators";
 import { Observable } from "rxjs";
+import { AngularFirestore } from "@angular/fire/compat/firestore";
 
 @Component({
   selector: 'app-board',

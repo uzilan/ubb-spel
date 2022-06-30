@@ -9,8 +9,6 @@ import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { FormsModule } from '@angular/forms';
 import { BoardComponent } from './board/board.component';
-import { AngularFirestoreModule } from '@angular/fire/firestore';
-import { AngularFireModule } from '@angular/fire';
 import { environment } from '../environments/environment';
 import { StatsComponent } from './stats/stats.component';
 import { MatDialogModule } from '@angular/material/dialog';
@@ -28,6 +26,9 @@ import { StatsMostPlayedComponent } from './stats-most-played/stats-most-played.
 import { GamePlayerStatsComponent } from "./game-player-stats/game-player-stats.component";
 import { MatAutocompleteModule } from "@angular/material/autocomplete";
 import { MatOptionModule } from "@angular/material/core";
+import { AngularFireModule } from "@angular/fire/compat";
+import { AngularFireAuthModule } from "@angular/fire/compat/auth";
+import { AngularFirestoreModule } from "@angular/fire/compat/firestore";
 
 @NgModule({
   declarations: [
@@ -55,6 +56,7 @@ import { MatOptionModule } from "@angular/material/core";
     MatTableModule,
     MatGridListModule,
     FormsModule,
+    AngularFireAuthModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     HighchartsChartModule,
