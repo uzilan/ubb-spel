@@ -1,7 +1,3 @@
 <h2>Flest spelat</h2>
 <app-stats-simple-chart [data$]="players$"></app-stats-simple-chart>
-<div class="list-wrapper">
-  <ol>
-    <li *ngFor="let row of players$ |async; let i = index">{{row.name}} - {{row.value}} ggr</li>
-  </ol>
-</div>
+<app-stats-simple-table [data$]="players$" [unit]="'ggr'"></app-stats-simple-table>

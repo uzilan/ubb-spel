@@ -40,13 +40,8 @@
   <tbody>
   <tr *ngFor="let item of [].constructor(players); let row = index">
     <td>
-      <mat-autocomplete #auto="matAutocomplete">
-        <mat-option *ngFor="let option of potentialNames$ | async" [value]="option">
-          {{option}}
-        </mat-option>
-      </mat-autocomplete>
       <input matInput type="text" class="input-name"
-             [(ngModel)]="playerNames[row]"  [matAutocomplete]="auto">
+             [(ngModel)]="playerNames[row]">
     </td>
     <td *ngFor="let item of [].constructor(7); let col = index">
       <input matInput [ngModel]="getCell(row, col)"

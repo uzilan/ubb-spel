@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import * as _ from 'lodash';
-import { Game } from '../../model/game';
-import { map } from "rxjs/operators";
-import { Observable } from "rxjs";
-import { AngularFirestore } from "@angular/fire/compat/firestore";
+import {Game} from '../../model/game';
+import {map} from "rxjs/operators";
+import {Observable} from "rxjs";
+import {AngularFirestore} from "@angular/fire/compat/firestore";
 
 @Component({
   selector: 'app-stats',
