@@ -1,5 +1,5 @@
 <div class="list-wrapper">
   <ol>
-    <li *ngFor="let row of data$ |async; let i = index">{{row.name}} - {{row.value}} {{unit}}</li>
+    <li *ngFor="let row of data$ |async; let i = index"><span>{{row.name}} - {{row.value}} {{unit}}</span></li>
   </ol>
 </div>

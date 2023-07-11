@@ -15,7 +15,6 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {StatsWinnersComponent} from './stats-winners/stats-winners.component';
 import {StatsScoresComponent} from './stats-scores/stats-scores.component';
 import {HighchartsChartModule} from 'highcharts-angular';
-import {StatsSimpleChartComponent} from './stats-simple-chart/stats-simple-chart.component';
 import {StatsGameListComponent} from './stats-game-list/stats-game-list.component';
 import {StatsGameComponent} from './stats-game/stats-game.component';
 import {MatTableModule} from '@angular/material/table';
@@ -30,8 +29,8 @@ import {AngularFireModule} from "@angular/fire/compat";
 import {AngularFireAuthModule} from "@angular/fire/compat/auth";
 import {AngularFirestoreModule} from "@angular/fire/compat/firestore";
 import {StatsHighestHandComponent} from "./stats-highest-hand/stats-highest-hand.component";
-import { StatsHighestDiffComponent } from './stats-highest-diff/stats-highest-diff.component';
-import { StatsSimpleTableComponent } from './stats-simple-table/stats-simple-table.component';
+import {StatsHighestDiffComponent} from './stats-highest-diff/stats-highest-diff.component';
+import {StatsSimpleTableComponent} from './stats-simple-table/stats-simple-table.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +39,6 @@ import { StatsSimpleTableComponent } from './stats-simple-table/stats-simple-tab
     StatsComponent,
     StatsWinnersComponent,
     StatsScoresComponent,
-    StatsSimpleChartComponent,
     StatsGameListComponent,
     StatsGameComponent,
     OrderbyPipe,
