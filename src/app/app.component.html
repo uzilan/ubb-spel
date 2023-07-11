@@ -3,11 +3,11 @@
   <section class="header">
     <section class="logout mat-typography">
       <label class="logged-in-as">Inloggad som: {{ user.displayName }}</label>&nbsp;
-      <button mat-raised-button color="basic" (click)="logout()">Logga ut</button>
+      <button mat-raised-button (click)="logout()">Logga ut</button>
     </section>
 
     <section class="stats mat-typography">
-      <button mat-raised-button color="basic" (click)="showStats()">Statistik</button>
+      <button mat-raised-button (click)="showStats()">Statistik</button>
     </section>
   </section>
 
@@ -15,7 +15,7 @@
 
     <div *ngIf="phase == PhaseType.Welcome">
       <h1 class="title">Välkommen till UBB!</h1>
-      <button mat-raised-button color="basic" class="new-game" (click)="phase = PhaseType.HowMany">Starta ett nytt spel
+      <button mat-raised-button class="new-game" (click)="phase = PhaseType.HowMany">Starta ett nytt spel
       </button>
     </div>
 
@@ -23,7 +23,7 @@
       <h1 class="title">Antal spelare?</h1>
       <div class="number-of-players-wrapper">
         <input matInput [(ngModel)]="players" type="number" class="number-of-players">&nbsp;
-        <button mat-raised-button color="basic" class="new-game" (click)="phase = PhaseType.Game">Ok</button>
+        <button mat-raised-button class="new-game" (click)="phase = PhaseType.Game">Ok</button>
       </div>
     </div>
 
@@ -38,7 +38,7 @@
   <section class="max-height mat-typography flex">
     <div>
       <h1 class="title">Välkommen till UBB!</h1>
-      <button mat-raised-button color="basic" (click)="login()">Logga in med Google</button>
+      <button mat-raised-button (click)="login()">Logga in med Google</button>
     </div>
   </section>
 </ng-template>
