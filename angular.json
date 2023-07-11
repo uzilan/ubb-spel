@@ -136,7 +136,6 @@
       }
     }
   },
-  "defaultProject": "ubb-spel",
   "cli": {
     "analytics": false
   }
