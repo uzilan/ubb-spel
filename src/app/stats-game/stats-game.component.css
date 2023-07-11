@@ -9,7 +9,7 @@
 }
 
 .game-table {
-  font-size: 7pt;
+  font-size: 9pt;
   border: 1px gray solid;
   margin-left: auto;
   margin-right: auto;
@@ -18,14 +18,18 @@
 
 .game-table-header {
   font-weight: bolder;
-  font-size: 8pt;
+  font-size: 12pt;
   vertical-align: baseline;
 }
 
 .tight {
-  width: 10px !important;
+  width: 15px !important;
 }
 
 td.winner {
   background-color: #afe2af;
+}
+
+div.spacy-header {
+  padding: 5px;
 }
